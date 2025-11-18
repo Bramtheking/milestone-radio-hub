@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'react-quill/dist/quill.snow.css';
+
+/* Milestone Institute Radio Design System - Inspired by their beautiful blue and cyan theme */
+
+@layer base {
+  :root {
+    /* Milestone Institute Brand Colors */
+    --milestone-navy: 220 85% 15%;        /* Deep navy blue from their header */
+    --milestone-blue: 207 90% 61%;        /* Primary blue from their branding */
+    --milestone-cyan: 187 85% 53%;        /* Light cyan from their main content area */
+    --milestone-red: 0 84% 57%;           /* Red accent from their buttons */
+    --milestone-orange: 25 95% 53%;       /* Orange accent color */
+    
+    /* Background gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--milestone-navy)), hsl(var(--milestone-blue)));
+    --gradient-cyan: linear-gradient(135deg, hsl(var(--milestone-cyan)), hsl(var(--milestone-blue)));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100% / 0.9), hsl(0 0% 100% / 0.7));
+    
+    /* Semantic colors */
+    --background: 0 0% 100%;
+    --foreground: 220 85% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 85% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 85% 15%;
+
+    --primary: 220 85% 15%;              /* Milestone navy */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 207 90% 61%;            /* Milestone blue */
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 187 85% 53%;               /* Milestone cyan */
+    --accent-foreground: 0 0% 100%;
+
+    --radio: 0 84% 57%;                  /* Milestone red for radio elements */
+    --radio-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --destructive: 0 84% 57%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 207 90% 61%;
+
+    --radius: 0.75rem;
+
+    /* Shadows with brand colors */
+    --shadow-milestone: 0 10px 40px -10px hsl(var(--milestone-blue) / 0.3);
+    --shadow-glow: 0 0 30px hsl(var(--milestone-cyan) / 0.4);
+    
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 220 85% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 85% 6%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 85% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 207 90% 61%;
+    --primary-foreground: 220 85% 4%;
+
+    --secondary: 220 85% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --accent: 187 85% 53%;
+    --accent-foreground: 220 85% 4%;
+
+    --muted: 220 50% 12%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --border: 220 50% 15%;
+    --input: 220 50% 15%;
+    --ring: 207 90% 61%;
+  }
+}
+
+@layer components {
+  /* Radio Player Styles */
+  .radio-player {
+    @apply bg-gradient-to-br from-milestone-navy to-milestone-blue text-white rounded-2xl p-6 shadow-2xl;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    @apply bg-gradient-to-br from-milestone-navy via-milestone-blue to-milestone-cyan text-white;
+  }
+  
+  /* Article Cards */
+  .article-card {
+    @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-border/50;
+  }
+  
+  /* Admin Panel */
+  .admin-panel {
+    @apply bg-gradient-to-br from-milestone-blue/5 to-milestone-cyan/5 min-h-screen;
+  }
+  
+  /* Custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-muted/50 rounded-full;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-milestone-blue/60 rounded-full hover:bg-milestone-blue/80;
+  }
+  
+  /* Milestone-specific utility classes */
+  .text-milestone-navy { @apply text-[hsl(var(--milestone-navy))]; }
+  .text-milestone-blue { @apply text-[hsl(var(--milestone-blue))]; }
+  .text-milestone-cyan { @apply text-[hsl(var(--milestone-cyan))]; }
+  .text-milestone-red { @apply text-[hsl(var(--milestone-red))]; }
+  
+  .bg-milestone-navy { @apply bg-[hsl(var(--milestone-navy))]; }
+  .bg-milestone-blue { @apply bg-[hsl(var(--milestone-blue))]; }
+  .bg-milestone-cyan { @apply bg-[hsl(var(--milestone-cyan))]; }
+  .bg-milestone-red { @apply bg-[hsl(var(--milestone-red))]; }
+  
+  .border-milestone-blue { @apply border-[hsl(var(--milestone-blue))]; }
+  .border-milestone-cyan { @apply border-[hsl(var(--milestone-cyan))]; }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
